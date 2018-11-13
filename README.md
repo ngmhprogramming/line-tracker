@@ -3,10 +3,16 @@ Line tracking car with Arduino, which attempts to follow a black duct tape line 
 
 # How it works
 - Two colour sensors check if they are above the line or not
-- They are calibrated first by taking 100 samples at 20 millisecond intervals
 - This is because readings would vary base on the surroundings and the sensors are low quality
 - If one side is off, it corrects the motion by turning until both are on the line, to prevent the car from "escaping"
 - If both sides are similar, the car is on the line, or the sensors are placed accross the line, so it moves forward
+
+# Calibration
+- Sets threshold values for state detection
+- 100 readings at 20 millisecond intervals
+- Average of "white reading" and "black reading"
+- Car has to be placed on pure white, followed by pure black
+- This process can be ignored by setting the hardcoded values and setting calibrate to 0 instead of 1
 
 # Hardware
 - TCS230 / TCS3200 Colour Sensor
